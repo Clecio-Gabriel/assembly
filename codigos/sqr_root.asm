@@ -22,6 +22,7 @@ main:
 loopSquare:
 	blt $s0, $s3, check	#if input < S, end the loop
 	
+	add $s4, $s3, $zero
 	addi $s1, $s1, 1	# R += 1
 	addi $s2, $s2, 2	# D += 2
 	add $s3, $s3, $s2	# S <= S + D
@@ -30,8 +31,22 @@ loopSquare:
 	j loopSquare
 
 check:
+	beq $s0, $s4, end
 	
-	j end
-	
+	j main
+			
 end:	
+	li $v0, 1
+	la $a0, ($s0)
+	syscall
 	
+	li $v0, 4
+	la $a0, str2
+	syscall
+	
+	li $v0, 1
+	la $a0, ($s1)
+	syscall
+	
+	li $v0, 10
+	syscall
