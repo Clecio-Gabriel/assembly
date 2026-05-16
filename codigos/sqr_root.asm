@@ -12,13 +12,13 @@ ini:
 	li $t1, 10
 	
 	#CREATE INPUT VECTOR
-	li $a0, 80
+	li $a0, 40
 	li $v0, 9
 	syscall
 	move $s5, $v0	#INPUT VECTOR IN $S5
 	
 	#CREATE SQROOT VECTOR
-	li $a0, 80
+	li $a0, 40
 	li $v0, 9
 	syscall
 	move $s6, $v0	#SQROOT VECTOR IN $S6
